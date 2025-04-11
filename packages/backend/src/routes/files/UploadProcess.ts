@@ -95,7 +95,7 @@ export const run = async (req: RequestWithUser, res: FastifyReply) => {
 		type,
 		size: String(fileSize),
 		hash,
-		ip: req.ip,
+		ip: req.headers['x-real-ip'],
 		isS3: true,
 		isWatched: false
 	};

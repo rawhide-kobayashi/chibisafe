@@ -4,7 +4,7 @@ import prisma from '@/structures/database.js';
 export default async (req: FastifyRequest, res: FastifyReply) => {
 	const banned = await prisma.bans.findFirst({
 		where: {
-			ip: req.ip
+			ip: req.headers['x-real-ip']
 		}
 	});
 
