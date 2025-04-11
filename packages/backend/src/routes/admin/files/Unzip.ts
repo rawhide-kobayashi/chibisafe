@@ -86,7 +86,7 @@ export const run = async (req: RequestWithUser, res: FastifyReply) => {
 
 			void handleUploadFile({
 				user: req.user,
-				ip: req.headers['x-real-ip'],
+				ip: req.headers['x-real-ip'] as string,
 				upload: {
 					name: entry.name,
 					path: `${tmpDir}/${filename}`,
