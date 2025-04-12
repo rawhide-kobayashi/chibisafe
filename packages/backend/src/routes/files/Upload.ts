@@ -194,6 +194,11 @@ export const run = async (req: RequestWithUser, res: FastifyReply) => {
 			album
 		});
 
+		req.log.error(req.ip);
+		req.log.error(req.ips);
+		req.log.error(req.headers['x-forwarded-for']);
+		req.log.error(req.headers['x-real-ip'])
+
 		const linkData = constructFilePublicLink({ req, fileName: uploadedFile.name });
 		// Construct public link
 		const fileWithLink = {
